@@ -1,0 +1,19 @@
+#one{
+    font-family:"Open Sans";
+    color: #a7aeba;
+    margin-right: 100px; 
+}
+
+#two{
+    background-color:#D4DADF;
+    border:black;
+    width:330px;
+    padding-left:64px;
+    padding-top:32px;
+}
+
+#two p {
+    padding-top:12px;
+    padding-bottom:12px;
+    padding-left:48px;
+}
