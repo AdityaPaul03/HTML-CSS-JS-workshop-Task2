@@ -7,13 +7,36 @@
 #two{
     background-color:#D4DADF;
     border:black;
-    width:330px;
+    width:500px;
     padding-left:64px;
-    padding-top:32px;
+    padding-top:32px; 
+    padding-right: 50px;
+}
+
+#two #la{
+    padding-right: 113px;
 }
 
 #two p {
     padding-top:12px;
     padding-bottom:12px;
     padding-left:48px;
+
+}
+
+#reqd {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#reqd .background-image{
+    height: 360px;
+    width: 330px;
+    padding-right:28px;
+    padding-bottom:24px;
+
+}
+
+#reqd .background-image:hover {
+    
 }

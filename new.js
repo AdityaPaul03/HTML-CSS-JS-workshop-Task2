@@ -8,11 +8,13 @@ fetch(API_URL)
     .then(response => response.json())
     .then(data => {
         console.log(data);
-        let i=0;
-        for(i;i<20;i++)
-        {
+        data.results.forEach(e => {
+            const image = document.createElement('img');
+            const background = IMG_URL + e.poster_path;
+            const title = document.createElement('h6');
+            image.setAttribute('src',background);
+            image.classList.add('background-image')
             const path = document.querySelector('#reqd');
-            let background = data.results[i].poster_path;
-            console.log(background);
-        }
+            path.appendChild(image);
+        });
     });
