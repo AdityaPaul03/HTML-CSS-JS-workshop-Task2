@@ -4,8 +4,6 @@ const API_URL = BASE_URL + '/discover/movie?sort_by=popularity.desc&' + API_KEY;
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 const searchURL = BASE_URL + '/search/movie?' + API_KEY;
 
-let i=0;
-
 const input = document.forms['one'].querySelector('input');
 input.addEventListener('keyup', function(e) {
     const term = e.target.value.toLowerCase();
@@ -14,11 +12,11 @@ input.addEventListener('keyup', function(e) {
         .then(response => response.json())
         .then(data => {
             data.results.forEach(e => {
-                i++;
-                if(e.title.toLowerCase().includes(term) === false)
+                if(e.title.toLowerCase().indexOf(term) === -1)
                 {
                     first.classList.add('hidden');
                 }
+                console.log(first);
                 first = first.nextElementSibling;
             });
         })
