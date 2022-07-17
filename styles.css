@@ -7,10 +7,11 @@
 #two{
     background-color:#D4DADF;
     border:black;
-    width:500px;
+    width:355px;
     padding-left:64px;
     padding-top:32px; 
     padding-right: 50px;
+    max-width: 355px;
 }
 
 #two #la{
@@ -27,23 +28,45 @@
 #reqd {
     display: flex;
     flex-wrap: wrap;
+    padding-bottom: 80px;
 }
 
 #reqd div .background-image{
     height: 360px;
     width: 330px;
     padding-right:28px;
-    padding-bottom:28px;
+    padding-bottom:23px;
 }
 
 #reqd div article {
-    white-space: nowrap;
-  	overflow: hidden;
-  	text-overflow: ellipsis;
     position: relative;
     font-weight: 500;
     font-size: 24px;
-    bottom: 200px;
-    color: red;
-    background-image: -moz-linear-gradient();
+    top:300px;
+    color: white;
+    padding-left: 12px;
+}
+
+#reqd div {
+    margin-top: -20px;
+}
+
+#reqd div:nth-child(5) {
+    display: none;
+}
+
+#reqd div:nth-child(11) {
+    display: none;
+}
+
+#reqd div:nth-child(16) {
+    display: none;
+}
+
+#reqd div:hover article{
+    background-color: black;
+    width: 302px;
+    display:inherit;
+    transition-timing-function: ease-in;
+    transition-duration: 500ms;
 }

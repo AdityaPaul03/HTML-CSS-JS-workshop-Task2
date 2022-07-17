@@ -4,9 +4,12 @@ const API_URL = BASE_URL + '/discover/movie?sort_by=popularity.desc&' + API_KEY;
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 const searchURL = BASE_URL + '/search/movie?' + API_KEY;
 
+let chr;
+
 fetch(API_URL)
     .then(response => response.json())
     .then(data => {
+        chr = data;
         console.log(data);
         data.results.forEach(e => {
             const div = document.createElement('div');
@@ -16,34 +19,36 @@ fetch(API_URL)
             const title = document.createElement('h6');
             image.setAttribute('src',background);
             image.classList.add('background-image');
-            if(e.title.length > 22)
-            {
-                let i = 0;
-                let count = 0;
-                let chr = '';
-                for(i;i<e.title.length;i++)
-                {
-                    if (count === 3)
-                    {
-                        chr+= '\n';
-                        count = 0;
-                    }
-                    if(e.title[i] === ' ')
-                    {
-                        count++;
-                    }
-                    chr+= e.title[i];
-                }
-                article.innerText = chr;
-            }
-            else{
             article.innerText = e.title;
-            }
             const path = document.querySelector('#reqd');
             path.appendChild(div);
-            div.appendChild(image);
             div.appendChild(article);
+            div.appendChild(image);
         });
     });
 
+setTimeout(function() {
+    const all = document.querySelectorAll('#reqd div');
+    console.log(all);
+    const searchBar = document.forms['one'].querySelector('input');
+    searchBar.addEventListener('keyup', function(x) {
+        const term = x.target.value.toLowerCase();
+        all.forEach(a =>{
+            console.log(a.firstChild.innerText);
+            if(a.firstChild.innerText.toLowerCase().indexOf(term) === -1)
+            {
+                a.style.display = 'none';
+            }
+            else{
+                if(a.firstChild.innerText.toLowerCase() === 'doctor strange in the multiverse of madness' || a.firstChild.innerText.toLowerCase() === 'fantastic beasts: the secrets of dumbledore' || a.firstChild.innerText.toLowerCase() === 'dragon ball super: super hero')
+                {
+                    a.style.display = 'none';
+                }
+                else{
+                    a.style.display = 'inline';
+                }
+            }
+        });
+    });
+}, 1000);
 
